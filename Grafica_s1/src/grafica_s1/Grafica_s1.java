@@ -16,54 +16,60 @@ public class Grafica_s1 {
     /**
      * @param args the command line arguments
      */
+    
+    // Entre más pequeño, mayor precisión habrá en el eje de las Y.
+    static double y_precision = 0.0001;
+    
+    // Tolerancia diferencia entre punto calculado y punto Y.
+    static double precision_tolerance = 0.00004;
+    
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner lee = new Scanner(System.in);
         System.out.println("\t\tIntervalo");
-        // int x = lee.nextInt();
-        // double cos = Math.cos(Math.toRadians(x));
-        // System.out.println(cos);
         int num1 = -4;
         int num2 = 4;
+        
+        // Entre más pequeño, mayor presición tendrá el eje de las X
         double paso = 0.2;
         
-        System.out.println("\n\tIntervalo de " + num1 + " a " + num2 + "con paso de " + paso);
+        System.out.println("\n\tIntervalo de " + num1 + " a " + num2 + " con paso de " + paso);
         createGraphic(num1, num2, paso);
     }
     
     private static void createGraphic(int limMin, int limMax, double paso)
     {
+        // System.out.println(Math.cos(Math.toRadians(limMin)));
+        // System.out.println(Math.cos(Math.toRadians(limMax)));
+        
         // Eje Y
-        System.out.println(Math.cos(Math.toRadians(limMin)));
-        System.out.println(Math.cos(Math.toRadians(limMax)));
-        for(double y = -1; y <= 1; y += 0.0001)
+        for(double y = -1; y <= 1; y += y_precision)
         {
-            // System.out.println("Entro");
+            
             String gr = "";
             boolean flag = false;
             // Eje x
             for(double x = limMin; x <= limMax + paso; x += paso)
             {
-                // System.out.println("x: " + x + "; y: " + y);
-                double punto = Math.cos(Math.toRadians(x));
-                // System.out.println(punto + "\n");
+                double punto = Math.cos(x);
+                // System.out.println("[x: " + x + "; y: " + y + "]: " + punto);
 
                 // Imprime Y
-                if(aproxNumber(punto, y, 0.00002))
+                if(aproxNumber(punto, y * -1))
                 {
-                    /*
-                    System.out.println("True");
-                    System.out.println(punto + "\n");
-                    */
+                    // Existe una diferencia mínima aceptada para imprimir la marca.
                     gr += "*";
                     flag = true;
                 } else 
                 {
-                    gr += " ";
+                    // No existe una diferencia.
+                    // Genera un espacio que recorre el eje de las X
+                    gr += ".";
                 }
             }
             if(flag == true)
             {
+                // Genera un espacio que recorre el eje de las Y
                 System.out.println(gr);
             }
         }
@@ -73,12 +79,11 @@ public class Grafica_s1 {
      * Calcula aproximando
      * @param current Numero actual
      * @param number Número al cual se quiere aproximar
-     * @param tol Tolerancia
      * @return boolean
      */
-    private static boolean aproxNumber(double current, double number, double tol)
+    private static boolean aproxNumber(double current, double number)
     {
-        if(((number/current) < 1 + tol) && ((number/current) > 1 - tol))
+        if(((number/current) < 1 + precision_tolerance) && ((number/current) > 1 - precision_tolerance))
         {
             // System.out.println(number/current);
             return true;
