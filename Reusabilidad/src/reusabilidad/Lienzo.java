@@ -43,12 +43,21 @@ public class Lienzo {
      */
     public void dibujaLinea(int x1, int y1, int x2, int y2, char c)
     {
-        double m = ((double)(y2 - y1)) / ((double)x2 - x1);
-        
-        for(int x = x1; x <= x2; x++)
+        if(x1 == x2)
         {
-            int y = (int)(m * (x - x1) + y1);
-            this.setPen(x, y, c);
+            for(int y = y1; y <= y2; y++)
+            {
+                this.setPen(x1, y, c);
+            }
+        } else 
+        {
+            double m = ((double)(y2 - y1)) / ((double)x2 - x1);
+
+            for(int x = x1; x <= x2; x++)
+            {
+                int y = (int)(m * (x - x1) + y1);
+                this.setPen(x, y, c);
+            }
         }
     }
     
