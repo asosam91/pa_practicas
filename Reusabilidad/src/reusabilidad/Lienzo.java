@@ -14,6 +14,14 @@ public class Lienzo {
     private int ancho;
     private char[][] lienzo;
     
+    public int getAncho() {
+        return ancho;
+    }
+
+    public int getAlto() {
+        return alto;
+    }
+    
     public Lienzo()
     {
         this.alto = 100;
@@ -26,11 +34,6 @@ public class Lienzo {
         this.alto = alto;
         this.ancho = ancho;
         iniciaLienzo();
-    }
-    
-    public void dibujaCirculo()
-    {
-        
     }
     
     /**
@@ -58,6 +61,17 @@ public class Lienzo {
                 int y = (int)(m * (x - x1) + y1);
                 this.setPen(x, y, c);
             }
+        }
+    }
+
+    public void dibujaCirculo(int x1, int y1, int r, char c)
+    {
+        for(double t = 0; t <= Math.PI*2; t += 0.1)
+        {
+            double x = x1 + r * Math.cos(t);
+            double y = y1 + r * Math.sin(t);
+
+            this.setPen((int)x, (int)y, c);
         }
     }
     

@@ -10,7 +10,7 @@ package terreno;
  * @author Samuel
  */
 public class Lienzo {
-    // Atributos de la clase
+
     private int ancho;
     private int alto;
     private char [][] lienzo;

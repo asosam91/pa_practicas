@@ -16,9 +16,17 @@ public class Reusabilidad {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Lienzo lienzo = new Lienzo(51,51);
+        /*Lienzo lienzo = new Lienzo(51,51);
         lienzo.dibujaLinea(0, 50, 50, 0, '*');
-        lienzo.paint();
+        lienzo.paint();*/
+        
+        /*Lienzo lienzoCirculo = new Lienzo(101,51);
+        lienzoCirculo.dibujaCirculo(20, 20, 20, '*');
+        lienzoCirculo.paint();*/
+        
+        
+        LienzoConMarco lcm = new LienzoConMarco(50,10);
+        lcm.paint();
     }
     
 }
