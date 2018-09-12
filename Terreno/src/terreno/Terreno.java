@@ -22,7 +22,6 @@ public class Terreno {
         double b = 100d;
         double paso = b/lienzo.getHeight();
         int pasosReimman = 100;
-        double totalAgua = 0d;
         
         for(double i = a; i < b; i+=paso)
         {
@@ -31,18 +30,14 @@ public class Terreno {
             // System.out.print(i + " ");
             lienzo.setPen((int)i, valor1, '*');
             lienzo.setPen((int)i, valor2, '*');
-            // grafica(valor);
-            // totalAgua += valor;
         }
         
-        // Regula el cambio
-        //totalAgua = totalAgua * paso;
-        
-        lienzo.paint();
-        //System.out.println(totalAgua);
+        lienzo.paint();        
+        double areaCultivable = (lienzo.getWidth() * lienzo.getHeight()) - 
+                areaReimman(0, b, pasosReimman);
 
         System.out.println("El área de Reinman es de " + 
-                areaReimman(0, 100, pasosReimman) +  
+                areaCultivable +  
                 " de acuerdo con " + pasosReimman + " pasos utilizados.");
     }
     
