@@ -25,8 +25,11 @@ public class Reusabilidad {
         lienzoCirculo.paint();*/
         
         
-        LienzoConMarco lcm = new LienzoConMarco(50,10);
-        lcm.paint();
+        /*LienzoConMarco lcm = new LienzoConMarco(50,10);
+        lcm.paint();*/
+        
+        Terreno terreno = new Terreno();
+        terreno.paint();
     }
     
 }
