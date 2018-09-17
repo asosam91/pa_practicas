@@ -64,6 +64,13 @@ public class Lienzo {
         }
     }
 
+    /**
+     * Dibuja un círculo a partir de un punto dado y un radio.
+     * @param x1 Coordenada X
+     * @param y1 Coordenada Y
+     * @param r Radio
+     * @param c Caracter que será usado para dibujar el círculo.
+     */
     public void dibujaCirculo(int x1, int y1, int r, char c)
     {
         for(double t = 0; t <= Math.PI*2; t += 0.1)
@@ -71,8 +78,35 @@ public class Lienzo {
             double x = x1 + r * Math.cos(t);
             double y = y1 + r * Math.sin(t);
 
-            this.setPen((int)x, (int)y, c);
+            if(x < 0 || y < 0 || x > this.ancho || y > this.alto)
+            {
+                System.out.println("Error: El círculo sale de los límites del lienzo. "
+                        + "\nReplantee los puntos.");
+                break;
+            } else
+                this.setPen((int)x, (int)y, c);
         }
+    }
+    
+    /**
+     * Dibuja un círculo que pase por dos puntos dados.
+     * @param x1 Coordenada X del punto 1
+     * @param y1 Coordenada Y del punto 1
+     * @param x2 Coordenada X del punto 2
+     * @param y2 Coordenada Y del punto 2
+     * @param c Caracter que será usado para dibujar el círculo.
+     */
+    public void dibujaCirculo(int x1, int y1, int x2, int y2, char c)
+    {
+        // Calcula centro
+        int xc = returnMiddlePoint(x1, x2);
+        int yc = returnMiddlePoint(y1, y2);
+        
+        // Calcula radio
+        int r = getDistance(x1, y1, xc, yc);
+        dibujaLinea(x1, y1, xc, yc, 'r');
+        
+        dibujaCirculo(xc, yc, r, c);
     }
     
     public void dibujaSector()
@@ -113,5 +147,16 @@ public class Lienzo {
                 this.lienzo[i][j]='.';
             }
         } 
+    }
+    
+    private int returnMiddlePoint(int p1, int p2)
+    {
+        return (p2 + p1) / 2;
+    }
+    
+    private int getDistance(int x1, int y1, int x2, int y2)
+    {
+        int d = (int)(Math.sqrt((Math.pow((x2 - x1), 2) + Math.pow(y2 - y1, 2))));
+        return d;
     }
 }

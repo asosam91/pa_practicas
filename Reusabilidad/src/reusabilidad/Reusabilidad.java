@@ -17,7 +17,7 @@ public class Reusabilidad {
     public static void main(String[] args) {
         // TODO code application logic here
         /*Lienzo lienzo = new Lienzo(51,51);
-        lienzo.dibujaLinea(0, 50, 50, 0, '*');
+        lienzo.dibujaLinea(1, 1, 50, 0, '*');
         lienzo.paint();*/
         
         /*Lienzo lienzoCirculo = new Lienzo(101,51);
@@ -28,8 +28,12 @@ public class Reusabilidad {
         /*LienzoConMarco lcm = new LienzoConMarco(50,10);
         lcm.paint();*/
         
-        Terreno terreno = new Terreno();
-        terreno.paint();
+        // Terreno terreno = new Terreno();
+        // terreno.paint();
+        
+        Lienzo lm = new Lienzo();
+        lm.dibujaCirculo(30, 40, 80, 80, '*');
+        lm.paint();
     }
     
 }
