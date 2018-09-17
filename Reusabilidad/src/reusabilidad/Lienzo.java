@@ -78,10 +78,14 @@ public class Lienzo {
             double x = x1 + r * Math.cos(t);
             double y = y1 + r * Math.sin(t);
 
-            if(x < 0 || y < 0 || x > this.ancho || y > this.alto)
+            if((int)x < 0 || (int)y < 0 || (int)x > this.ancho || (int)y > this.alto)
             {
                 System.out.println("Error: El círculo sale de los límites del lienzo. "
-                        + "\nReplantee los puntos.");
+                        + "\nReplantee los puntos. \n\nInformación extra:");
+                System.out.println("x:\t" + (int)x + "\ny:\t" + (int)y + 
+                        "\n\nLienzo\nAlto:\t" + this.getAlto() +
+                        "\nAncho:\t" + this.getAncho());
+                
                 break;
             } else
                 this.setPen((int)x, (int)y, c);
