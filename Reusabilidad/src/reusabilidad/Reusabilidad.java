@@ -31,9 +31,14 @@ public class Reusabilidad {
         // Terreno terreno = new Terreno();
         // terreno.paint();
         
-        Lienzo lm = new Lienzo();
+        // Tarea
+        /* Lienzo lm = new Lienzo();
         lm.dibujaCirculo(30, 40, 80, 80, '*');
-        lm.paint();
+        lm.paint(); */
+        
+        Lienzo lin = new Lienzo();
+        lin.dibujaLinea(50, 20, 10d, 300d, '*');
+        lin.paint();
     }
     
 }

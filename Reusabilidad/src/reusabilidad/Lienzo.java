@@ -46,6 +46,17 @@ public class Lienzo {
      */
     public void dibujaLinea(int x1, int y1, int x2, int y2, char c)
     {
+        // Ordena puntos
+        int tx = x1;
+        int ty = y1;
+        if(x1 > x2)
+        {
+            x1 = x2;
+            y1 = y2;
+            x2 = tx;
+            y2 = ty;
+        }
+        
         if(x1 == x2)
         {
             for(int y = y1; y <= y2; y++)
@@ -62,6 +73,14 @@ public class Lienzo {
                 this.setPen(x, y, c);
             }
         }
+    }
+    
+    public void dibujaLinea(int x1, int y1, double d, double t, char c)
+    {
+        int x = (int)(Math.cos(t) * d);
+        int y = (int)(Math.sin(t) * d);
+        
+        dibujaLinea(x1, y1, x1 + x, y1 + y, c);        
     }
 
     /**
