@@ -32,7 +32,7 @@ public class Reusabilidad {
         // terreno.paint();
         
         // Tarea
-        /*Lienzo lm = new Lienzo();
+        Lienzo lm = new Lienzo();
         System.out.println("\n\nDibuja Círculo");
         System.out.println("Dibuja círculo que pase por dos puntos que serán " +
                 "tomados como los puntos del diametro del círculo.");
@@ -51,10 +51,10 @@ public class Reusabilidad {
         System.out.println("Dibuja un círculo y un sector de éste en base"
                 + " a los ángulos dados en los parámetros");
         lsec.dibujaSector(20,0, 20, 90d, 135d, 'r');
-        lsec.paint();*/
+        lsec.paint();
         
-        Lienzo l = new Lienzo();
-        System.out.println(l.toString());
+        /*Lienzo l = new Lienzo();
+        System.out.println(l.toString());*/
     }
     
 }
