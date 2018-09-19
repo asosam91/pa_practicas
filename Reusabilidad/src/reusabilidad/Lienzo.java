@@ -188,14 +188,7 @@ public class Lienzo {
      * Imprime lienzo
      */
     public void paint() {
-        // Imprime el lienzo en la pantalla
-        for(int y = this.alto - 1; y >= 0; y--) {
-            System.out.println();
-            for(int x = 0; x < this.ancho; x++) {
-                System.out.print(this.lienzo[x][y] + " ");
-            }
-        }
-        System.out.println();
+        System.out.println(this.toString());
     }
     
     private void iniciaLienzo()
@@ -217,5 +210,19 @@ public class Lienzo {
     {
         int d = (int)(Math.sqrt((Math.pow((x2 - x1), 2) + Math.pow(y2 - y1, 2))));
         return d;
+    }
+    
+    @Override
+    public String toString()
+    {
+        // Imprime el lienzo en la pantalla
+        String r = "";
+        for(int y = this.alto - 1; y >= 0; y--) {
+            r = r + "\n";
+            for(int x = 0; x < this.ancho; x++) {
+                r = r + this.lienzo[x][y] + " ";
+            }
+        }
+        return r;
     }
 }
