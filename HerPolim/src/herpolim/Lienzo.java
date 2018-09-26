@@ -22,6 +22,10 @@ public class Lienzo {
         return alto;
     }
     
+    public char getChar(int x, int y) {
+        return this.lienzo[x][y];
+    }
+    
     public Lienzo()
     {
         this.alto = 100;
@@ -34,6 +38,27 @@ public class Lienzo {
         this.alto = alto;
         this.ancho = ancho;
         iniciaLienzo();
+    }
+    
+    public void agregaLienzo(int x, int y, Lienzo la)
+    {
+        int xl = 0, yl = 0;
+        for(int i = y; yl < la.getAlto(); i++)
+        {
+            for(int j = x; xl < la.getAncho(); j++)
+            {
+                try
+                {
+                    this.setPen(j, i, la.getChar(xl, yl));
+                } catch(Exception ex){
+                    System.out.println(ex + "x: " + xl + ", y: " + yl);
+                    break;
+                }
+                xl++;
+            }
+            xl = 0;
+            yl++;
+        }
     }
     
     /**
@@ -62,7 +87,7 @@ public class Lienzo {
         for(int y = this.alto - 1; y >= 0; y--) {
             r = r + "\n";
             for(int x = 0; x < this.ancho; x++) {
-                r = r + this.lienzo[x][y] + " ";
+                r = r + this.lienzo[x][y] + "";
             }
         }
         return r;

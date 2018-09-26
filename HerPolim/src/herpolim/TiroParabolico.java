@@ -29,7 +29,9 @@ public class TiroParabolico extends Lienzo {
         if((x >= 0) && (x <= this.getAncho() - 1) &&
             (y >= 0) && (x <= this.getAlto() - 1))
         {
-            this.setPen((int)x, (int)y, '*');
+            // this.setPen((int)x, (int)y, '*');
+            Calcomania cb = new CannonBall();
+            this.agregaLienzo((int)x, (int)y, cb);
         }
     }
 }

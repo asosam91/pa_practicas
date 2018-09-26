@@ -25,6 +25,11 @@ public class Calcomania extends Lienzo {
         super(20, 20);
     }
     
+    public Calcomania(int width, int height)
+    {
+        super(width, height);
+    }
+    
     public void importaString(String c)
     {
         this.draw = c;

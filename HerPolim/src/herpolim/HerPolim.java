@@ -19,12 +19,18 @@ public class HerPolim {
         /*Perro p = new Perro();
         p.paint();*/
         
-        TiroParabolico tb = new TiroParabolico(40d, 30d);
-        for(double t = 0; t <= 3; t+=0.1)
+        TiroParabolico tb = new TiroParabolico(40d, 20d);
+        for(double t = 0; t <= 3; t+=0.2)
         {
             tb.animar(t);
         }
-        System.out.println(tb);
+        
+        Lienzo li = new Lienzo(tb.getAncho() + 20, tb.getAlto() + 10);
+        Calcomania cannon = new Cannon();
+        li.agregaLienzo(0, 0, cannon);
+        li.agregaLienzo(cannon.getAncho() + 1, 6, tb);
+        li.paint();
+        
     }
     
 }
