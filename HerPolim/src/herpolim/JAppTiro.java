@@ -123,12 +123,17 @@ public class JAppTiro extends javax.swing.JFrame {
         TiroParabolico animacion = 
                 new TiroParabolico(velocidad, angulo);
         
-        for(double t = 0; t <= 3; t+=0.1)
+        for(double t = 0; t <= 3; t+=0.2)
         {
             animacion.animar(t);
         }
         
-        txaAnimacion.setText(animacion.toString());
+        Lienzo li = new Lienzo(animacion.getAncho() + 20, 
+                animacion.getAlto() + 10);
+        Calcomania cannon = new Cannon();
+        li.agregaLienzo(0, 0, cannon);
+        li.agregaLienzo(cannon.getAncho() + 1, 6, animacion);
+        txaAnimacion.setText(li.toString());
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     private void sldTiempoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldTiempoStateChanged
