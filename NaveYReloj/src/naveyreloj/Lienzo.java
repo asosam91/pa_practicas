@@ -22,22 +22,33 @@ public class Lienzo {
         return this.alto;
     }
     
-    public char getChar(int x, int y) {
+    public char getPen(int x, int y) {
         return this.lienzo[x][y];
+    }
+    
+    /**
+     * Coloca en las coordenadas dadas.
+     * @param x Eje X.
+     * @param y Eje Y.
+     * @param c Caracter que se imprimirá.
+     */
+    public void setPen(int x, int y, char c) {
+       // Coloca el caracter c en la posición x,y
+       this.lienzo[x][y] = c;
     }
     
     public Lienzo()
     {
         this.alto = 100;
         this.ancho = 100;
-        iniciaLienzo();
+        clear();
     }
     
     public Lienzo(int ancho, int alto)
     {
         this.alto = alto;
         this.ancho = ancho;
-        iniciaLienzo();
+        clear();
     }
     
     public void agregaLienzo(int x, int y, Lienzo la)
@@ -49,7 +60,7 @@ public class Lienzo {
             {
                 try
                 {
-                    this.setPen(j, i, la.getChar(xl, yl));
+                    this.setPen(j, i, la.getPen(xl, yl));
                 } catch(Exception ex){
                     System.out.println(ex + "x: " + xl + ", y: " + yl);
                     break;
@@ -180,34 +191,9 @@ public class Lienzo {
         }
     }
     
-    /**
-     * Dibuja sector de un círculo en base a un radio, un ángulo de inicio y
-     * un ángulo "de apertura"
-     * @param x1 Coordenada X del punto
-     * @param y1 Coordenada Y del punto
-     * @param r Radio
-     * @param t1 Ángulo de inicio
-     * @param t2 Ángulo de fin
-     * @param c Caracter que será usado para dibujar el círculo.
-     */
-    public void dibujaSector(int x1, int y1, int r, double t1, double t2, char c)
+    public Lienzo LienzoFactory(String[] array)
     {
-        this.dibujaLinea(x1, y1, r, t1, c);
-        this.dibujaLinea(x1, y1, r, t2, c);
-        
-        this.dibujaCirculo(x1, y1, r, c);
-    }
-
-    
-    /**
-     * Coloca en las coordenadas dadas.
-     * @param x Eje X.
-     * @param y Eje Y.
-     * @param c Catacter que se imprimirá.
-     */
-    public void setPen(int x, int y, char c) {
-       // Coloca el caracter c en la posición x,y
-       this.lienzo[x][y] = c;
+        return null;
     }
     
     /**
@@ -234,7 +220,7 @@ public class Lienzo {
     /**
      * Método auxiliar para iniciar lienzo
      */
-    public void iniciaLienzo()
+    public void clear()
     {
         this.lienzo = new char[this.ancho][this.alto];
         for(int i = 0; i < this.ancho; i++) {

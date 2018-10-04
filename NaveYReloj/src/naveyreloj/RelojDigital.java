@@ -13,14 +13,14 @@ public class RelojDigital extends Reloj {
     
     public RelojDigital()
     {
-        super(100, 20);
+        super(100, 10);
         update();
     }
     
     @Override
     public void update()
     {        
-        this.iniciaLienzo();
+        this.clear();
         String hora = this.getFullHourStr();
         
         int w = 0;
@@ -32,7 +32,7 @@ public class RelojDigital extends Reloj {
                 sp += 3;
             Calcomania cal = new Calcomania(sp,6);
             cal.importaString(str);
-            this.agregaLienzo(w, 0, cal);
+            this.agregaLienzo(w, this.getAlto() - cal.getAlto() - 1, cal);
             w += cal.getAncho();
         }
     }
