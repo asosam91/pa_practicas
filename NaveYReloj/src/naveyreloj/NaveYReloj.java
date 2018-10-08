@@ -21,25 +21,26 @@ public class NaveYReloj {
         miReloj.setHoraExacta(true);
         System.out.println(miReloj);
         
-        
         System.out.println("\n\nReloj digital");
         Reloj miOtroReloj = new RelojDigital();
         miOtroReloj.setHoraExacta(true);
         miOtroReloj.paint();
         
-        /*
+        System.out.println("\n\n\n\t\t-- Naves --");
+        // System.out.println("\nFrame 1");
         Nave miNave = new Nave();
         Espacio terrestre = new Espacio(miNave);
         System.out.println(terrestre);
         
+        // System.out.println("\nFrame 2");
         terrestre.mueveNave(20, 20);
         System.out.println(terrestre);
         
+        // System.out.println("\nFrame 3");
         Nave otraNave = new Challenger();
         terrestre.agregaNave(otraNave);
         terrestre.mueveNave(80, 40);
         System.out.println(terrestre);
-        */
     }
     
 }

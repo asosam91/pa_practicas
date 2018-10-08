@@ -9,11 +9,42 @@ package naveyreloj;
  *
  * @author Samuel
  */
-public class Nave extends Calcomania {
+public class Nave extends Lienzo {
     public Nave()
     {
         super();
-        String n = "";
-        this.importaString(n);
+        String[] n = {"       !\n" ,
+                    "       !\n" ,
+                    "       ^\n" ,
+                    "      / \\\n" ,
+                    "     /___\\\n" ,
+                    "    |=   =|\n" ,
+                    "    |     |\n" ,
+                    "    |     |\n" ,
+                    "    |     |\n" ,
+                    "    |     |\n" ,
+                    "    |     |\n" ,
+                    "    |     |\n" ,
+                    "    |     |\n" ,
+                    "    |     |\n" ,
+                    "    |     |\n" ,
+                    "   /|##!##|\\\n" ,
+                    "  / |##!##| \\\n" ,
+                    " /  |##!##|  \\\n" ,
+                    "|  / ^ | ^ \\  |\n" ,
+                    "| /  ( | )  \\ |\n" ,
+                    "|/   ( | )   \\|\n" ,
+                    "    ((   ))\n" ,
+                    "   ((  :  ))\n" ,
+                    "   ((  :  ))\n" ,
+                    "    ((   ))\n" ,
+                    "     (( ))\n" ,
+                    "      ( )\n" ,
+                    "       .\n" ,
+                    "       ."};
+        
+        Lienzo l = Nave.LienzoFactory(n);
+        this.resize(l.getAncho(), l.getAlto());
+        this.agregaLienzo(0, 0, l);
     }
 }

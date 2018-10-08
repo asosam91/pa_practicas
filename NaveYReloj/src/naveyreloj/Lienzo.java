@@ -34,7 +34,10 @@ public class Lienzo {
      */
     public void setPen(int x, int y, char c) {
        // Coloca el caracter c en la posición x,y
-       this.lienzo[x][y] = c;
+        if(c == '\n')
+            this.lienzo[x][y] = ' ';
+        else
+            this.lienzo[x][y] = c;
     }
     
     public Lienzo()
@@ -191,9 +194,49 @@ public class Lienzo {
         }
     }
     
-    public Lienzo LienzoFactory(String[] array)
+    /**
+     * Genera un lienzo a partir de un arreglo de cadenas El lienzo tiene como ancho, 
+     * el ancho de la cadena más grande El lienzo tiene de alto, 
+     * el número de cadenas presente en el arreglo.
+     * 
+     * Uso String [] strImagen = { " ,-,", "/.(", "\\ {", " `-`" }; 
+     * Lienzo luna = Lienzo.LienzoFactory(strImagen);
+     * @param array Imagen ASCII Art expresada como un arreglo de caracteres
+     * @return Nuevo Lienzo.
+     */
+    public static Lienzo LienzoFactory(String[] array)
     {
-        return null;
+        int max = 0;
+        for(String item : array)
+        {
+            if(item.length() > max)
+                max = item.length();
+        }
+        Lienzo l = new Lienzo(max, array.length);
+        int y = array.length - 1, x;
+        for(String item : array)
+        {
+            x = 0;
+            l.setTexto(x, y, item);
+            y--;
+        }
+        return l;
+    }
+
+    public void setTexto(int x, int y, String etiqueta)
+    {
+        for(char c : etiqueta.toCharArray())
+        {
+            this.setPen(x, y, c);
+            x++;
+        }
+    }
+
+    public void resize(int width, int height)
+    {
+        this.ancho = width;
+        this.alto = height;
+        this.clear();
     }
     
     /**
@@ -211,7 +254,7 @@ public class Lienzo {
         for(int y = this.alto - 1; y >= 0; y--) {
             r = r + "\n";
             for(int x = 0; x < this.ancho; x++) {
-                r = r + this.lienzo[x][y] + " ";
+                r = r + this.lienzo[x][y] + "";
             }
         }
         return r;
