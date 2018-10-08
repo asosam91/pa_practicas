@@ -3,6 +3,10 @@
 */*
 !src
 
+# Proyectos Tareas que cuentan.
+.vscode
+!NaveYReloj
+
 # Plantilla generada desde GitHub
 # Compiled class file
 *.class
